@@ -5,4 +5,5 @@
 [node name="MAIN" type="Node2D" unique_id=998464337]
 
 [node name="player" parent="." unique_id=502374999 instance=ExtResource("1_itxqv")]
-position = Vector2(619, 300)
+position = Vector2(526, 482)
+rotation = -0.012781013

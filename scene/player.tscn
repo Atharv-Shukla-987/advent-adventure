@@ -597,16 +597,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvtld"]
+size = Vector2(15, 15)
+
 [node name="player" type="CharacterBody2D" unique_id=502374999]
 scale = Vector2(3.98, 3.98)
 script = ExtResource("1_hjaqi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1176671611]
+position = Vector2(-0.25125647, 0)
 sprite_frames = SubResource("SpriteFrames_x6kx1")
-animation = &"attack-up"
+animation = &"idle-down"
 flip_h = true
 
 [node name="sword swing" type="AudioStreamPlayer2D" parent="." unique_id=699613715]
+position = Vector2(0.75376886, -1.2562814)
 stream = ExtResource("3_fvtld")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1308067001]
+position = Vector2(7.5, -0.5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=945798674]
+position = Vector2(-0.25125694, 0.2512563)
+shape = SubResource("RectangleShape2D_fvtld")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
