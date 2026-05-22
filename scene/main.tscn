@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bd4mxdtxgbfni"]
 
-[ext_resource type="PackedScene" uid="uid://c236uwoiw7cvy" path="res://scene/player.tscn" id="1_itxqv"]
+[ext_resource type="Script" uid="uid://d23qxkkccue66" path="res://scene/main.gd" id="1_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://de7x4lxltn33" path="res://scene/levels/level_root.tscn" id="2_wp4xf"]
 
 [node name="MAIN" type="Node2D" unique_id=998464337]
+rotation = -0.0004166765
+script = ExtResource("1_v0l8b")
 
-[node name="player" parent="." unique_id=502374999 instance=ExtResource("1_itxqv")]
-position = Vector2(526, 482)
-rotation = -0.012781013
+[node name="level root" parent="." unique_id=1214526405 instance=ExtResource("2_wp4xf")]

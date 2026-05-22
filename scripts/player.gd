@@ -9,10 +9,17 @@ const SPEED = 300.0
 var lastdirection : Vector2 =  Vector2.RIGHT
 var isattacking: bool = false
 var hitboxoffset : Vector2
+var power = 20 
+
+
+
 func _ready() -> void:
 	hitboxoffset = hitbox.position
 
 func _physics_process(delta: float) -> void:
+	
+	hitbox.monitoring = false
+	
 	if Input.is_action_just_pressed("attack") and not isattacking:
 		
 		attack()
@@ -65,7 +72,9 @@ func play_animation(prefix : String , dir:Vector2)-> void:
 		
 		
 func attack() -> void:
+	
 	isattacking = true
+	hitbox.monitoring = true
 	sword_swing.play()
 	play_animation("attack", lastdirection)
 	
@@ -91,4 +100,11 @@ func update_hiboxoffset() -> void:
 			hitbox.position == Vector2(y,-x)
 		Vector2.DOWN:
 			hitbox.position = Vector2(-y,x)
+#?????????????
+	
+
+
+func _on_hitbox_body_exited(body: Node2D) -> void:
+	if isattacking and body.name.begins_with("slime"):
+		body.damagetake(power, position)
 	
