@@ -57,5 +57,4 @@ func _on_sight_body_exited(body: Node2D) -> void:
 		anim.play("idle")
 		
 		
-#fdsj dftjhpog
-		
+#fdsj dftjhpogvcfcfjhgbghvvl
