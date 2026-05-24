@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://2y4er2jxyxd8" path="res://scripts/slime.gd" id="1_038jq"]
 [ext_resource type="Texture2D" uid="uid://cnqtu8vcceeoo" path="res://resource/Enemies/Slime_Green.png" id="1_e1ae0"]
 [ext_resource type="AudioStream" uid="uid://bym56nmcq8qft" path="res://resource/audio/dragon-studio-sword-clashhit-393837.mp3" id="3_gscq4"]
+[ext_resource type="PackedScene" uid="uid://c2gtiuunhm0v1" path="res://scene/healthbar.tscn" id="4_fcoq0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_038jq"]
 atlas = ExtResource("1_e1ae0")
@@ -167,7 +168,10 @@ radius = 6.7146263
 height = 19.18493
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e1ae0"]
-radius = 117.96709
+radius = 225.7317
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcoq0"]
+radius = 8.646405
 
 [node name="slime" type="CharacterBody2D" unique_id=560564131]
 scale = Vector2(2.085, 2.085)
@@ -189,11 +193,25 @@ shape = SubResource("CapsuleShape2D_038jq")
 [node name="sight" type="Area2D" parent="." unique_id=760829339]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sight" unique_id=1185159487]
-position = Vector2(0, 0.4796164)
+position = Vector2(4.7961626, 2.3980813)
 shape = SubResource("CircleShape2D_e1ae0")
 
 [node name="take damage" type="AudioStreamPlayer2D" parent="." unique_id=1023577780]
 stream = ExtResource("3_gscq4")
 
+[node name="Healthbar" parent="." unique_id=389597612 instance=ExtResource("4_fcoq0")]
+position = Vector2(0.95923257, -11.510791)
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1204678588]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1374547430]
+position = Vector2(0.47961628, 0)
+shape = SubResource("CircleShape2D_fcoq0")
+
+[node name="attacktimer" type="Timer" parent="." unique_id=999193930]
+
 [connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="sight" to="." method="_on_sight_body_exited"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="attacktimer" to="." method="_on_attacktimer_timeout"]

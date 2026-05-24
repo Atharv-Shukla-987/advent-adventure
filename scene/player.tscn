@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cq1pbn14refvf" path="res://scripts/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://cf42fpfpvsdqi" path="res://resource/Player/Player.png" id="1_xo3ru"]
 [ext_resource type="AudioStream" uid="uid://b2dl6mrvx7fyx" path="res://530448__mellau__whoosh-short-5.wav" id="3_fvtld"]
+[ext_resource type="AudioStream" uid="uid://d1co3f2nt3syi" path="res://resource/audio/dragon-studio-punch-431475.mp3" id="4_ct4mp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
 atlas = ExtResource("1_xo3ru")
@@ -390,7 +391,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4reak")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }, {
@@ -618,7 +619,7 @@ position_smoothing_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1176671611]
 position = Vector2(-0.25125647, 0)
 sprite_frames = SubResource("SpriteFrames_x6kx1")
-animation = &"idle-down"
+animation = &"die"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1065410101]
@@ -637,6 +638,13 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=945798674]
 position = Vector2(2.782662, 1.2751257)
 shape = SubResource("RectangleShape2D_fvtld")
+
+[node name="takedmaage" type="AudioStreamPlayer2D" parent="." unique_id=1542300046]
+stream = ExtResource("4_ct4mp")
+
+[node name="dmgcooldown" type="Timer" parent="." unique_id=1363785414]
+wait_time = 1.0019999999999998
+one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

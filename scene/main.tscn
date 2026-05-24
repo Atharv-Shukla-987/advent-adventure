@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://bd4mxdtxgbfni"]
 
-[ext_resource type="Script" uid="uid://d23qxkkccue66" path="res://scene/main.gd" id="1_v0l8b"]
+[ext_resource type="Script" uid="uid://d23qxkkccue66" path="res://scripts/main.gd" id="1_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://de7x4lxltn33" path="res://scene/levels/level_root.tscn" id="2_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://cx5urur3ee7lm" path="res://scene/hud.tscn" id="3_wp4xf"]
+[ext_resource type="AudioStream" uid="uid://ckd5keqogfoo2" path="res://resource/ui/01. Enter Hallownest.mp3" id="4_brvut"]
 
 [node name="MAIN" type="Node2D" unique_id=998464337]
 rotation = -0.0004166765
 script = ExtResource("1_v0l8b")
 
 [node name="level_root" parent="." unique_id=1214526405 instance=ExtResource("2_wp4xf")]
-position = Vector2(-1157.8873, -270.48248)
+position = Vector2(-102.08411, 201.9575)
+
+[node name="HUD" parent="." unique_id=74308111 instance=ExtResource("3_wp4xf")]
+visible = false
+
+[node name="background music" type="AudioStreamPlayer" parent="." unique_id=1995101899]
+stream = ExtResource("4_brvut")
+volume_db = -24.312

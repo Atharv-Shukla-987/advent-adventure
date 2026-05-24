@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cx5urur3ee7lm"]
+
+[ext_resource type="Script" uid="uid://bg8em1timho3s" path="res://scripts/hud.gd" id="1_s3k51"]
+[ext_resource type="Texture2D" uid="uid://diijrsh8e7alv" path="res://resource/ui/Heart2.png" id="2_o8u2p"]
+
+[node name="HUD" type="CanvasLayer" unique_id=74308111]
+script = ExtResource("1_s3k51")
+
+[node name="FADEOVERLAY" type="ColorRect" parent="." unique_id=241226683]
+modulate = Color(1, 1, 1, 0.4627451)
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 974.0
+offset_bottom = 393.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="hearts" type="BoxContainer" parent="." unique_id=362668833]
+visible = false
+offset_right = 105.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+
+[node name="heart 1" type="TextureRect" parent="hearts" unique_id=412699368]
+layout_mode = 2
+texture = ExtResource("2_o8u2p")
+stretch_mode = 2
+
+[node name="heart 2" type="TextureRect" parent="hearts" unique_id=496797877]
+layout_mode = 2
+texture = ExtResource("2_o8u2p")
+stretch_mode = 2
+
+[node name="heart 3" type="TextureRect" parent="hearts" unique_id=1786522573]
+layout_mode = 2
+texture = ExtResource("2_o8u2p")
+stretch_mode = 2
+
+[node name="heart 4" type="TextureRect" parent="hearts" unique_id=1081746019]
+layout_mode = 2
+texture = ExtResource("2_o8u2p")
+stretch_mode = 2
+
+[node name="heart 5" type="TextureRect" parent="hearts" unique_id=942628307]
+layout_mode = 2
+texture = ExtResource("2_o8u2p")
+stretch_mode = 2

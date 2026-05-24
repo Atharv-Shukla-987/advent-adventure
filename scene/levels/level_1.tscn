@@ -1,8 +1,62 @@
 [gd_scene format=3 uid="uid://clygx1pqtfki"]
 
 [ext_resource type="PackedScene" uid="uid://de7x4lxltn33" path="res://scene/levels/level_root.tscn" id="1_3hls8"]
+[ext_resource type="PackedScene" uid="uid://twnkm7exa8tl" path="res://scene/enemy/slime.tscn" id="2_1eggx"]
 
 [node name="level root" unique_id=1214526405 instance=ExtResource("1_3hls8")]
 
-[node name="player" parent="." index="1" unique_id=502374999]
-position = Vector2(5958, 1440)
+[node name="player" parent="." index="2" unique_id=502374999]
+position = Vector2(-249.99951, 205)
+
+[node name="exit" parent="." index="3" unique_id=1638921677]
+position = Vector2(3320, 1638)
+
+[node name="slimes" type="Node" parent="." index="4" unique_id=155920419]
+
+[node name="slime" parent="slimes" index="0" unique_id=560564131 instance=ExtResource("2_1eggx")]
+rotation = 0.21866895
+
+[node name="slime2" parent="slimes" index="1" unique_id=1658761805 instance=ExtResource("2_1eggx")]
+position = Vector2(2819, 2079)
+
+[node name="slime3" parent="slimes" index="2" unique_id=771850560 instance=ExtResource("2_1eggx")]
+position = Vector2(2893, 1502)
+
+[node name="slime4" parent="slimes" index="3" unique_id=1188899484 instance=ExtResource("2_1eggx")]
+position = Vector2(2104.9998, 1947)
+
+[node name="slime5" parent="slimes" index="4" unique_id=873196472 instance=ExtResource("2_1eggx")]
+position = Vector2(1684, 1414)
+
+[node name="slime6" parent="slimes" index="5" unique_id=869199035 instance=ExtResource("2_1eggx")]
+position = Vector2(2277, 1242.9999)
+
+[node name="slime7" parent="slimes" index="6" unique_id=764694701 instance=ExtResource("2_1eggx")]
+position = Vector2(2442, 503)
+
+[node name="slime8" parent="slimes" index="7" unique_id=832248120 instance=ExtResource("2_1eggx")]
+position = Vector2(1617, -177)
+
+[node name="slime9" parent="slimes" index="8" unique_id=1975930398 instance=ExtResource("2_1eggx")]
+position = Vector2(1097, 15)
+
+[node name="slime10" parent="slimes" index="9" unique_id=1808323679 instance=ExtResource("2_1eggx")]
+position = Vector2(-783, 10)
+
+[node name="slime11" parent="slimes" index="10" unique_id=1015557922 instance=ExtResource("2_1eggx")]
+position = Vector2(-212, 778)
+
+[node name="slime12" parent="slimes" index="11" unique_id=519065698 instance=ExtResource("2_1eggx")]
+position = Vector2(1021, 617)
+
+[node name="slime13" parent="slimes" index="12" unique_id=1941897823 instance=ExtResource("2_1eggx")]
+position = Vector2(1157, 1183)
+
+[node name="slime14" parent="slimes" index="13" unique_id=2067986196 instance=ExtResource("2_1eggx")]
+position = Vector2(2516, -622)
+
+[node name="slime15" parent="slimes" index="14" unique_id=757932517 instance=ExtResource("2_1eggx")]
+position = Vector2(3899, 889)
+
+[node name="slime16" parent="slimes" index="15" unique_id=1100469082 instance=ExtResource("2_1eggx")]
+position = Vector2(3310, -40)

@@ -1,35 +1,45 @@
 extends CharacterBody2D
 
+signal died 
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sword_swing: AudioStreamPlayer2D = $"sword swing"
 @onready var hitbox: Area2D = $hitbox
+@onready var takedmaage: AudioStreamPlayer2D = $takedmaage
+@onready var dmgcooldown: Timer = $dmgcooldown
 
-
+var alive : bool = true
 const SPEED = 300.0
 var lastdirection : Vector2 =  Vector2.RIGHT
 var isattacking: bool = false
 var hitboxoffset : Vector2
+var maxhealth : int 
+var health :int
 var power = 20 
 
 
 
 func _ready() -> void:
+	
+	health = playerstats.health
+	maxhealth = playerstats.maxhealth
+	
 	hitboxoffset = hitbox.position
 
 func _physics_process(delta: float) -> void:
 	
 	hitbox.monitoring = false
-	
-	if Input.is_action_just_pressed("attack") and not isattacking:
-		
-		attack()
-	#skiping movement
-	if isattacking:
-		velocity = Vector2.ZERO
-		return
-	process_movement()
-	process_animation()
-	move_and_slide()
+	if alive:
+		if Input.is_action_just_pressed("attack") and not isattacking:
+			
+			attack()
+		#skiping movement
+		if isattacking:
+			velocity = Vector2.ZERO
+			return
+		process_movement()
+		process_animation()
+		move_and_slide()
 	
 	
 	
@@ -100,7 +110,7 @@ func update_hiboxoffset() -> void:
 			hitbox.position == Vector2(y,-x)
 		Vector2.DOWN:
 			hitbox.position = Vector2(-y,x)
-#?????????????
+
 	
 
 
@@ -108,3 +118,22 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 	if isattacking and body.name.begins_with("slime"):
 		body.damagetake(power, position)
 	
+
+func takedamage (amt:int)  -> void :
+	if alive:
+		if dmgcooldown.time_left > 0 :
+			return
+		health = health - amt
+		takedmaage.play()
+		playerstats.health=health
+		print(health)
+		if health <= 0:
+			die()
+		dmgcooldown.start()
+		
+	
+func die() -> void:
+	animated_sprite_2d.play("die")
+	alive=false
+	await animated_sprite_2d.animation_finished
+	died.emit()

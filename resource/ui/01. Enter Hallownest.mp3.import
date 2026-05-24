@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckd5keqogfoo2"
+path="res://.godot/imported/01. Enter Hallownest.mp3-546915b58f41aa6d2049a8dfa6a7e14a.mp3str"
+
+[deps]
+
+source_file="res://resource/ui/01. Enter Hallownest.mp3"
+dest_files=["res://.godot/imported/01. Enter Hallownest.mp3-546915b58f41aa6d2049a8dfa6a7e14a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
