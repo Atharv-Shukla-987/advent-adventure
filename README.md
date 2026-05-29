@@ -32,7 +32,8 @@ advent_adventures/
 
 ##  Getting Started
 
- Just Go to  https://platformer-game-using-go-git-7b3ca4-atharv-shukla-987s-projects.vercel.app/exports/exports.html
+ Just Go to(https://atharv-shukla-987.itch.io/advent-adventure)
+ 
 and click play and enjoy
 ###  Controls
   arrow keys for direction and movement 
